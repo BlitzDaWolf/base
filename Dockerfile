@@ -7,7 +7,7 @@ LABEL maintainer="ownCloud DevOps <devops@owncloud.com>" \
 
 VOLUME ["/mnt/data"]
 
-EXPOSE 8080
+EXPOSE 80
 
 ENTRYPOINT ["/usr/bin/entrypoint"]
 CMD ["/usr/bin/owncloud", "server"]

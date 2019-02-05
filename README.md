@@ -18,7 +18,7 @@ To get an overview about the available versions please take a look at the [GitHu
 
 ## Ports
 
-* 8080
+* 80
 
 
 ## Available environment variables
@@ -242,7 +242,7 @@ tar -xjvf owncloud-10.0.8.tar.bz2
 export OWNCLOUD_DOMAIN=localhost
 export ADMIN_USERNAME=admin
 export ADMIN_PASSWORD=admin
-export HTTP_PORT=8080
+export HTTP_PORT=80
 
 docker volume create owncloud_files
 
@@ -250,7 +250,7 @@ docker run -d \
   --name owncloud \
   --link mariadb:db \
   --link redis:redis \
-  -p ${HTTP_PORT}:8080 \
+  -p ${HTTP_PORT}:80 \
   -e OWNCLOUD_DOMAIN=${OWNCLOUD_DOMAIN} \
   -e OWNCLOUD_DB_TYPE=mysql \
   -e OWNCLOUD_DB_NAME=owncloud \
@@ -276,7 +276,7 @@ cat << EOF >| .env
 OWNCLOUD_DOMAIN=localhost
 ADMIN_USERNAME=admin
 ADMIN_PASSWORD=admin
-HTTP_PORT=8080
+HTTP_PORT=80
 EOF
 
 wget https://download.owncloud.org/community/owncloud-10.0.10.tar.bz2

@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-chmod -R www-data:root /mnt/
+chown -r www-data:root /mnt/

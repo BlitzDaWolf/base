@@ -6,6 +6,7 @@ then
   rm -rf /var/www/owncloud/custom
 
   echo "Linking custom folder..."
+  mkdir /var/www/owncloud/custom
   ln -sf ${OWNCLOUD_VOLUME_APPS} /var/www/owncloud/custom
 fi
 
@@ -22,5 +23,5 @@ echo "Writing config file..."
 gomplate \
   -f /etc/templates/config.php \
   -o ${OWNCLOUD_VOLUME_CONFIG}/overwrite.config.php
-
+  
 true

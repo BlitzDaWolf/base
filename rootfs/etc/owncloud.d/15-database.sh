@@ -48,13 +48,13 @@ fi
 if [[ ${OWNCLOUD_REDIS_ENABLED} == "true" ]]
 then
   echo "Waiting for Redis..."
-  wait-for-it -t 60 ${OWNCLOUD_REDIS_HOST}:${OWNCLOUD_REDIS_PORT}
+  #wait-for-it -t 60 ${OWNCLOUD_REDIS_HOST}:${OWNCLOUD_REDIS_PORT}
 
-  if [[ $? -ne 0 ]]
-  then
-    echo "Redis didn't came up in time!"
-    exit 1
-  fi
+  #if [[ $? -ne 0 ]]
+  #then
+  #  echo "Redis didn't came up in time!"
+  #  exit 1
+  #fi
 fi
 
 true

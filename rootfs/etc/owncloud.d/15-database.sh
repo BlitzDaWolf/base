@@ -15,7 +15,7 @@ case ${OWNCLOUD_DB_TYPE} in
     #  echo "Database didn't came up in time!"
     #  exit 1
     #fi
-    #;;
+    ;;
   "pgsql")
     if ! grep -q ":" <<<${OWNCLOUD_DB_HOST}
     then

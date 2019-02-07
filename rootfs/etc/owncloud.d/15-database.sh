@@ -8,14 +8,14 @@ case ${OWNCLOUD_DB_TYPE} in
     fi
 
     echo "Waiting for MySQL..."
-    wait-for-it -t ${OWNCLOUD_DB_TIMEOUT} ${OWNCLOUD_DB_HOST}
+    #wait-for-it -t ${OWNCLOUD_DB_TIMEOUT} ${OWNCLOUD_DB_HOST}
 
-    if [[ $? -ne 0 && "${OWNCLOUD_DB_FAIL}" == "true" ]]
-    then
-      echo "Database didn't came up in time!"
-      exit 1
-    fi
-    ;;
+    #if [[ $? -ne 0 && "${OWNCLOUD_DB_FAIL}" == "true" ]]
+    #then
+    #  echo "Database didn't came up in time!"
+    #  exit 1
+    #fi
+    #;;
   "pgsql")
     if ! grep -q ":" <<<${OWNCLOUD_DB_HOST}
     then

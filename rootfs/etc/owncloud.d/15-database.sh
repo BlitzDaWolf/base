@@ -8,13 +8,13 @@ case ${OWNCLOUD_DB_TYPE} in
     fi
 
     echo "Waiting for MySQL..."
-    #wait-for-it -t ${OWNCLOUD_DB_TIMEOUT} ${OWNCLOUD_DB_HOST}
+    wait-for-it -t ${OWNCLOUD_DB_TIMEOUT} ${OWNCLOUD_DB_HOST}
 
-    #if [[ $? -ne 0 && "${OWNCLOUD_DB_FAIL}" == "true" ]]
-    #then
-    #  echo "Database didn't came up in time!"
-    #  exit 1
-    #fi
+    if [[ $? -ne 0 && "${OWNCLOUD_DB_FAIL}" == "true" ]]
+    then
+      echo "Database didn't came up in time!"
+      exit 1
+    fi
     ;;
   "pgsql")
     if ! grep -q ":" <<<${OWNCLOUD_DB_HOST}
@@ -48,13 +48,13 @@ fi
 if [[ ${OWNCLOUD_REDIS_ENABLED} == "true" ]]
 then
   echo "Waiting for Redis..."
-  #wait-for-it -t 60 ${OWNCLOUD_REDIS_HOST}:${OWNCLOUD_REDIS_PORT}
+  wait-for-it -t 60 ${OWNCLOUD_REDIS_HOST}:${OWNCLOUD_REDIS_PORT}
 
-  #if [[ $? -ne 0 ]]
-  #then
-  #  echo "Redis didn't came up in time!"
-  #  exit 1
-  #fi
+  if [[ $? -ne 0 ]]
+  then
+    echo "Redis didn't came up in time!"
+    exit 1
+  fi
 fi
 
 true
